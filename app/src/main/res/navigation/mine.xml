@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_mine"
+    app:startDestination="@id/mine">
+
+    <fragment
+        android:id="@+id/mine"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="mineFragment">
+        <argument
+            android:name="pageName"
+            android:defaultValue="mineFragment" />
+    </fragment>
+</navigation>

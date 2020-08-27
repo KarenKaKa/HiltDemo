@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/navigation_home">
+
+<!--    <action-->
+<!--        android:id="@+id/action_show_home"-->
+<!--        app:destination="@id/navigation_home" />-->
+<!--    <action-->
+<!--        android:id="@+id/action_show_product"-->
+<!--        app:destination="@id/navigation_product" />-->
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="@string/title_home">
+        <argument
+            android:name="pageName"
+            android:defaultValue="homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_product"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="@string/title_product">
+        <argument
+            android:name="pageName"
+            android:defaultValue="productFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_manager"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="@string/title_manager">
+        <argument
+            android:name="pageName"
+            android:defaultValue="managerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="@string/title_news">
+        <argument
+            android:name="pageName"
+            android:defaultValue="newsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="com.syr.hiltdemo.module.home.HomeFragment"
+        android:label="@string/title_mine">
+        <argument
+            android:name="pageName"
+            android:defaultValue="mineFragment" />
+        <!--        <action-->
+        <!--            android:id="@+id/showProduct"-->
+        <!--            app:destination="@id/productFragment" />-->
+        <!--        <action-->
+        <!--            android:id="@+id/showManager"-->
+        <!--            app:destination="@id/managerFragment" />-->
+        <!--        <action-->
+        <!--            android:id="@+id/showNews"-->
+        <!--            app:destination="@id/newsFragment" />-->
+    </fragment>
+</navigation>
