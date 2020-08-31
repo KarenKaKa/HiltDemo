@@ -28,14 +28,14 @@
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
     <TextView
-        android:id="@+id/toProductFragment"
+        android:id="@+id/toSortFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/colorAccent"
         android:gravity="center"
         android:padding="10dp"
-        android:text="toProductFragment"
+        android:text="toSortFragment"
         android:textColor="#fff"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@+id/toHomeFragment" />

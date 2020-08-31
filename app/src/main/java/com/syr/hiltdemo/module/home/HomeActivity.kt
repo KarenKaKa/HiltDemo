@@ -25,9 +25,9 @@ class HomeActivity : BaseActivity() {
 
         val navGraphIds = listOf(
             R.navigation.home,
-            R.navigation.product,
-            R.navigation.manager,
-            R.navigation.news,
+            R.navigation.sort,
+            R.navigation.find,
+            R.navigation.cart,
             R.navigation.mine
         )
         currentNavController = bottom_nav.setupWithNavController(
@@ -40,13 +40,13 @@ class HomeActivity : BaseActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         when (intent?.getStringExtra("toWhat")) {
-            "product" -> {
+            "sort" -> {
                 bottom_nav.selectedItemId = bottom_nav.menu.getItem(1).itemId
             }
-            "manager" -> {
+            "find" -> {
                 bottom_nav.selectedItemId = bottom_nav.menu.getItem(2).itemId
             }
-            "news" -> {
+            "cart" -> {
                 bottom_nav.selectedItemId = bottom_nav.menu.getItem(3).itemId
             }
             "mine" -> {

@@ -6,20 +6,20 @@
         android:icon="@drawable/selector_main_home"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_product"
-        android:contentDescription="@string/title_product"
-        android:icon="@drawable/selector_main_product"
-        android:title="@string/title_product" />
+        android:id="@+id/navigation_sort"
+        android:contentDescription="@string/title_sort"
+        android:icon="@drawable/selector_main_sort"
+        android:title="@string/title_sort" />
     <item
-        android:id="@+id/navigation_manager"
-        android:contentDescription="@string/title_manager"
-        android:icon="@drawable/selector_main_manager"
-        android:title="@string/title_manager" />
+        android:id="@+id/navigation_find"
+        android:contentDescription="@string/title_find"
+        android:icon="@drawable/selector_main_find"
+        android:title="@string/title_find" />
     <item
-        android:id="@+id/navigation_news"
-        android:contentDescription="@string/title_news"
-        android:icon="@drawable/selector_main_news"
-        android:title="@string/title_news" />
+        android:id="@+id/navigation_cart"
+        android:contentDescription="@string/title_cart"
+        android:icon="@drawable/selector_main_cart"
+        android:title="@string/title_cart" />
     <item
         android:id="@+id/navigation_mine"
         android:contentDescription="@string/title_mine"

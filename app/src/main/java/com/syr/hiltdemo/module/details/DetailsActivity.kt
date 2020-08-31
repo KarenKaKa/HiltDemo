@@ -20,9 +20,9 @@ class DetailsActivity : BaseActivity() {
             startActivity(
                 Intent(this, HomeActivity::class.java).apply { putExtra("toWhat", "home") })
         }
-        toProductFragment.setOnClickListener {
+        toSortFragment.setOnClickListener {
             startActivity(
-                Intent(this, HomeActivity::class.java).apply { putExtra("toWhat", "product") })
+                Intent(this, HomeActivity::class.java).apply { putExtra("toWhat", "sort") })
         }
     }
 }

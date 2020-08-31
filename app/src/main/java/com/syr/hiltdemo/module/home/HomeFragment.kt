@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment() {
 //                findNavController().navigate(R.id.action_show_home)
 //                Navigation.findNavController(text).navigate(R.id.action_show_home)
             }
-        } else if ("managerFragment" == pageName) {
+        } else if ("findFragment" == pageName) {
             text.text = "$pageName\nclick to 详情页"
             text.setOnClickListener { startActivity(Intent(activity, DetailsActivity::class.java)) }
         } else {

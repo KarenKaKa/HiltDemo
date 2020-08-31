@@ -7,8 +7,8 @@
 <!--        android:id="@+id/action_show_home"-->
 <!--        app:destination="@id/navigation_home" />-->
 <!--    <action-->
-<!--        android:id="@+id/action_show_product"-->
-<!--        app:destination="@id/navigation_product" />-->
+<!--        android:id="@+id/action_show_sort"-->
+<!--        app:destination="@id/navigation_sort" />-->
 
     <fragment
         android:id="@+id/navigation_home"
@@ -19,28 +19,28 @@
             android:defaultValue="homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_product"
+        android:id="@+id/navigation_sort"
         android:name="com.syr.hiltdemo.module.home.HomeFragment"
-        android:label="@string/title_product">
+        android:label="@string/title_sort">
         <argument
             android:name="pageName"
-            android:defaultValue="productFragment" />
+            android:defaultValue="sortFragment" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_manager"
+        android:id="@+id/navigation_find"
         android:name="com.syr.hiltdemo.module.home.HomeFragment"
-        android:label="@string/title_manager">
+        android:label="@string/title_find">
         <argument
             android:name="pageName"
-            android:defaultValue="managerFragment" />
+            android:defaultValue="findFragment" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_news"
+        android:id="@+id/navigation_cart"
         android:name="com.syr.hiltdemo.module.home.HomeFragment"
-        android:label="@string/title_news">
+        android:label="@string/title_cart">
         <argument
             android:name="pageName"
-            android:defaultValue="newsFragment" />
+            android:defaultValue="cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_mine"
@@ -50,13 +50,13 @@
             android:name="pageName"
             android:defaultValue="mineFragment" />
         <!--        <action-->
-        <!--            android:id="@+id/showProduct"-->
-        <!--            app:destination="@id/productFragment" />-->
+        <!--            android:id="@+id/showSort"-->
+        <!--            app:destination="@id/sortFragment" />-->
         <!--        <action-->
-        <!--            android:id="@+id/showManager"-->
-        <!--            app:destination="@id/managerFragment" />-->
+        <!--            android:id="@+id/showFind"-->
+        <!--            app:destination="@id/findFragment" />-->
         <!--        <action-->
-        <!--            android:id="@+id/showNews"-->
-        <!--            app:destination="@id/newsFragment" />-->
+        <!--            android:id="@+id/showCart"-->
+        <!--            app:destination="@id/cartFragment" />-->
     </fragment>
 </navigation>
