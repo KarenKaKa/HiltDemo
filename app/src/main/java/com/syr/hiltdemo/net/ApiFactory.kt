@@ -9,7 +9,6 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.Proxy
 import java.util.concurrent.TimeUnit
@@ -51,7 +50,6 @@ class ApiFactory(private val interceptors: List<Interceptor> = listOf()) {
             client(okHttpClient)
             baseUrl(endPoint)
             addConverterFactory(GsonConverterFactory.create(Gson()))
-            addCallAdapterFactory(RxJava2CallAdapterFactory.create())//rxjava
             adapterFactory?.let {
                 addCallAdapterFactory(it)
             }

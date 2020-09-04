@@ -1,6 +1,8 @@
 package com.syr.hiltdemo.net
 
 import com.syr.hiltdemo.base.BaseRepository
+import com.syr.hiltdemo.base.ResultData
+import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -12,8 +14,17 @@ import javax.inject.Singleton
 class HiltRepository @Inject constructor(
     private val api: ApiService
 ) : BaseRepository() {
-    fun userIdentityStatus(parameter: MutableMap<String, String>) =
-        createCall(api.userIdentityStatus(parameter))
+    suspend fun userIdentityStatus(parameter: MutableMap<String, String>) =
+        createCall {
+            val repository = api.userIdentityStatus(parameter)
+            if (repository.code == 2000)
+                return@createCall ResultData.Success(repository.data)
+            else return@createCall ResultData.Error(IOException("Request successful, request code not success code"))
+        }
 
-    fun timelineJson() = createCall(api.timelineJson())
+
+    suspend fun timelineJson() = createCall {
+        val repository = api.timelineJson()
+        return@createCall ResultData.Success(repository)
+    }
 }

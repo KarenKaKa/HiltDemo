@@ -8,13 +8,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import com.syr.hiltdemo.HiltApp
 import com.syr.hiltdemo.R
-import com.syr.hiltdemo.base.BaseResp
 import com.syr.hiltdemo.base.BaseViewModel
+import com.syr.hiltdemo.base.ResultData
 import com.syr.hiltdemo.net.HiltRepository
-import com.syr.hiltdemo.net.core.ResponseObserver
-import com.syr.hiltdemo.net.vo.IdentityInfo
-import com.syr.hiltdemo.net.vo.TimeLineJson
 import com.syr.hiltdemo.utils.UiUtil
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * @author songyaru
@@ -51,38 +50,30 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     private fun userIdentityStatus() {
-        add(
-            repository.userIdentityStatus(mutableMapOf())
-                .subscribeWith(object : ResponseObserver<BaseResp<IdentityInfo>>() {
-                    override fun onNext(t: BaseResp<IdentityInfo>) {
-                        if (t.succeeded) {
-                            resultField.set("请求成功：${t.data?.status}")
-                        } else {
-                            resultField.set("请求成功：${t.msg}")
-                        }
-                    }
-
-                    override fun onError(e: Throwable) {
-                        super.onError(e)
-                        resultField.set("请求失败：${getHandledResonseError()}  e=${e}")
-                    }
-                })
-        )
+        launchUI {
+            val bean = withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }
+            when (bean) {
+                is ResultData.Success -> {
+                    resultField.set("请求成功：${bean.data?.status}")
+                }
+                is ResultData.Error -> {
+                    resultField.set("请求失败：e=${bean}")
+                }
+            }
+        }
     }
 
     private fun getJson() {
-        add(
-            repository.timelineJson()
-                .subscribeWith(object : ResponseObserver<TimeLineJson>() {
-                    override fun onNext(t: TimeLineJson) {
-                        resultField.set("请求成功成功：${t.message}\n${t.documentation_url}")
-                    }
-
-                    override fun onError(e: Throwable) {
-                        super.onError(e)
-                        resultField.set("请求成功失败：${getHandledResonseError()}  e=${e}")
-                    }
-                })
-        )
+        launchUI {
+            val bean = withContext(Dispatchers.IO) { repository.timelineJson() }
+            when (bean) {
+                is ResultData.Success -> {
+                    resultField.set("请求成功成功：${bean.data.message}\n${bean.data.documentation_url}")
+                }
+                is ResultData.Error -> {
+                    resultField.set("请求失败：e=${bean}")
+                }
+            }
+        }
     }
 }

@@ -3,7 +3,6 @@ package com.syr.hiltdemo.net
 import com.syr.hiltdemo.base.BaseResp
 import com.syr.hiltdemo.net.vo.IdentityInfo
 import com.syr.hiltdemo.net.vo.TimeLineJson
-import io.reactivex.Observable
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -16,8 +15,8 @@ import retrofit2.http.POST
 interface ApiService {
     @FormUrlEncoded
     @POST("/web/identity/userIdentityStatus")
-    fun userIdentityStatus(@FieldMap map: MutableMap<String, String>): Observable<BaseResp<IdentityInfo>>
+    suspend fun userIdentityStatus(@FieldMap map: MutableMap<String, String>): BaseResp<IdentityInfo>
 
     @GET("timeline.json")
-    fun timelineJson(): Observable<TimeLineJson>
+    suspend fun timelineJson(): TimeLineJson
 }
