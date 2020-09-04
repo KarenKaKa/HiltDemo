@@ -1,4 +1,4 @@
 # HiltDemo
-master  MVVM+Databinding+ViewModel+Hilt+Retrofit+rxJava+Navigation
+branch-master  MVVM+Databinding+ViewModel+Hilt+Retrofit+rxJava+Navigation
 
-coroutines  MVVM+Databinding+ViewModel+Hilt+Retrofit+coroutines+Navigation
+branch-coroutines  MVVM+Databinding+ViewModel+Hilt+Retrofit+coroutines+Navigation
