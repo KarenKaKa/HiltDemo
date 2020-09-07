@@ -51,16 +51,29 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun userIdentityStatus() {
         launchUI {
-            val bean = withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }
-            when (bean) {
+            when (val bean =
+                withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
                 is ResultData.Success -> {
-                    resultField.set("请求成功：${bean.data?.status}")
+                    resultField.set("请求成功：${bean.data.status}")
                 }
                 is ResultData.Error -> {
                     resultField.set("请求失败：e=${bean}")
                 }
             }
+
+            val bean1 =
+                withContext(Dispatchers.IO) { repository.userIdentityStatus1(mutableMapOf()) }
+            when (bean1) {
+                is ResultData.Success -> {
+                    resultField.set("请求成功：${bean1.data.status}")
+                }
+                is ResultData.Error -> {
+                    resultField.set("请求失败：e=${bean1}")
+                }
+            }
         }
+
+
     }
 
     private fun getJson() {

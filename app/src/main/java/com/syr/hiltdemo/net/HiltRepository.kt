@@ -15,16 +15,23 @@ class HiltRepository @Inject constructor(
     private val api: ApiService
 ) : BaseRepository() {
     suspend fun userIdentityStatus(parameter: MutableMap<String, String>) =
-        createCall {
+        createCallWithoutIntercept {
             val repository = api.userIdentityStatus(parameter)
-            if (repository.code == 2000)
-                return@createCall ResultData.Success(repository.data)
-            else return@createCall ResultData.Error(IOException("Request successful, request code not success code"))
+            if (repository.code == 2000 && null != repository.data)
+                return@createCallWithoutIntercept ResultData.Success(repository.data)
+            else return@createCallWithoutIntercept ResultData.Error(
+                IOException(
+                    repository.msg ?: "Request successful, request code not success code"
+                )
+            )
         }
 
+    suspend fun userIdentityStatus1(parameter: MutableMap<String, String>) =
+        createCall(api.userIdentityStatus(parameter))
 
-    suspend fun timelineJson() = createCall {
+
+    suspend fun timelineJson() = createCallWithoutIntercept {
         val repository = api.timelineJson()
-        return@createCall ResultData.Success(repository)
+        return@createCallWithoutIntercept ResultData.Success(repository)
     }
 }
