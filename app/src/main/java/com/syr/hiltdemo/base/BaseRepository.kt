@@ -1,6 +1,6 @@
 package com.syr.hiltdemo.base
 
-import java.io.IOException
+import com.syr.hiltdemo.net.core.ResponseErrorHandler
 
 /**
  * @author songyaru
@@ -12,13 +12,13 @@ abstract class BaseRepository {
             val repository = call()
             return if (repository.code == 2000 && null != repository.data)
                 ResultData.Success(repository.data)
-            else ResultData.Error(
-                IOException(
-                    repository.msg ?: "Request successful, request code not success code"
-                )
+            else ResultData.ErrorMessage(
+                repository.msg ?: "Request successful, request code not success code"
             )
         } catch (e: Exception) {
-            ResultData.Error(e)
+            ResultData.ErrorMessage(
+                ResponseErrorHandler.instance.handleResponseError(e)
+            )
         }
     }
 

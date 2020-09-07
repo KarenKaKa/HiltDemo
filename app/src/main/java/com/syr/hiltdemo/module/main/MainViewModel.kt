@@ -51,15 +51,15 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun userIdentityStatus() {
         launchUI {
-            when (val bean =
-                withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
-                is ResultData.Success -> {
-                    resultField.set("请求成功：${bean.data.status}")
-                }
-                is ResultData.Error -> {
-                    resultField.set("请求失败：e=${bean}")
-                }
-            }
+//            when (val bean =
+//                withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
+//                is ResultData.Success -> {
+//                    resultField.set("请求成功：${bean.data.status}")
+//                }
+//                is ResultData.Error -> {
+//                    resultField.set("请求失败：e=${bean.exception}")
+//                }
+//            }
 
             val bean1 =
                 withContext(Dispatchers.IO) { repository.userIdentityStatus1(mutableMapOf()) }
@@ -67,8 +67,8 @@ class MainViewModel @ViewModelInject constructor(
                 is ResultData.Success -> {
                     resultField.set("请求成功：${bean1.data.status}")
                 }
-                is ResultData.Error -> {
-                    resultField.set("请求失败：e=${bean1}")
+                is ResultData.ErrorMessage -> {
+                    resultField.set("请求失败：e=${bean1.errorMessage}")
                 }
             }
         }
@@ -84,7 +84,7 @@ class MainViewModel @ViewModelInject constructor(
                     resultField.set("请求成功成功：${bean.data.message}\n${bean.data.documentation_url}")
                 }
                 is ResultData.Error -> {
-                    resultField.set("请求失败：e=${bean}")
+                    resultField.set("请求失败：e=${bean.exception}")
                 }
             }
         }
