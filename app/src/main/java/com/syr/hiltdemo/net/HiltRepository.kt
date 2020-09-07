@@ -27,7 +27,7 @@ class HiltRepository @Inject constructor(
         }
 
     suspend fun userIdentityStatus1(parameter: MutableMap<String, String>) =
-        createCall(api.userIdentityStatus(parameter))
+        createCall { api.userIdentityStatus(parameter) }
 
 
     suspend fun timelineJson() = createCallWithoutIntercept {

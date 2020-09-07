@@ -7,8 +7,9 @@ import java.io.IOException
  * @date 2020/8/17
  */
 abstract class BaseRepository {
-    fun <T> createCall(repository: BaseResp<T>): ResultData<T> {
+    suspend fun <T> createCall(call: suspend () -> BaseResp<T>): ResultData<T> {
         return try {
+            val repository = call()
             return if (repository.code == 2000 && null != repository.data)
                 ResultData.Success(repository.data)
             else ResultData.Error(
