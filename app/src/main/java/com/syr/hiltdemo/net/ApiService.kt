@@ -14,7 +14,7 @@ import retrofit2.http.POST
  */
 interface ApiService {
     @FormUrlEncoded
-    @POST("/web/identity/userIdentityStatus")
+    @POST("/web/Agreement/getUrl")
     suspend fun userIdentityStatus(@FieldMap map: MutableMap<String, String>): BaseResp<IdentityInfo>
 
     @GET("timeline.json")

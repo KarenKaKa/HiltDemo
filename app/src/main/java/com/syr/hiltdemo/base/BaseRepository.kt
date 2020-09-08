@@ -1,12 +1,16 @@
 package com.syr.hiltdemo.base
 
 import com.syr.hiltdemo.net.core.ResponseErrorHandler
+import javax.inject.Inject
 
 /**
  * @author songyaru
  * @date 2020/8/17
  */
 abstract class BaseRepository {
+    @Inject
+    lateinit var responseErrorHandler: ResponseErrorHandler
+
     suspend fun <T> createCall(call: suspend () -> BaseResp<T>): ResultData<T> {
         return try {
             val repository = call()
@@ -17,7 +21,7 @@ abstract class BaseRepository {
             )
         } catch (e: Exception) {
             ResultData.ErrorMessage(
-                ResponseErrorHandler.instance.handleResponseError(e)
+                responseErrorHandler.handleResponseError(e)
             )
         }
     }
