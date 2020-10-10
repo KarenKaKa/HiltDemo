@@ -1,0 +1,35 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.kotlin_version = '1.4.10'
+ext.dagger_version = '2.29.1-alpha'
+ext.hilt_version = '1.0.0-alpha02'
+
+def versions = [
+        compileSdkVersion  : 29,
+        buildToolsVersion  : "29.0.3",
+        minSdkVersion      : 21,
+        targetSdkVersion   : 29,
+        versionCode        : 1,
+        versionName        : "1.0.0",
+        sourceCompatibility: JavaVersion.VERSION_1_8,
+        targetCompatibility: JavaVersion.VERSION_1_8,
+        jvmTarget          : "1.8"
+]
+ext.versions = versions
+
+def arouter_versions = [
+        arouter_api     : "1.5.0",
+        arouter_compiler: "1.2.2"
+]
+ext.arouter_versions = arouter_versions
+
+def sign = [
+        //打包签名
+        keyAlias     : "HiltDemo",
+        storePassword: "123456",
+        keyPassword  : "123456"
+]
+ext.sign = sign
+

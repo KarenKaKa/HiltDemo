@@ -1,9 +1,9 @@
 package com.syr.hiltdemo.di
 
 import com.syr.hiltdemo.BuildConfig
-import com.syr.hiltdemo.net.ApiFactory
-import com.syr.hiltdemo.net.ApiService
-import com.syr.hiltdemo.net.interceptor.RetryInterceptor
+import com.syr.module_common.net.ApiFactory
+import com.syr.module_common.net.interceptor.RetryInterceptor
+import com.syr.module_custom.ProductService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +30,14 @@ object AppModule {
     @Provides
     fun provideApiService(apiFactory: ApiFactory): ApiService {
         return apiFactory.createApiService(BuildConfig.BASE_URL, ApiService::class.java)
+    }
+
+    /**
+     * 提供多种ApiService
+     */
+    @Singleton
+    @Provides
+    fun provideProductApiService(apiFactory: ApiFactory): ProductService {
+        return apiFactory.createApiService(BuildConfig.BASE_URL, ProductService::class.java)
     }
 }

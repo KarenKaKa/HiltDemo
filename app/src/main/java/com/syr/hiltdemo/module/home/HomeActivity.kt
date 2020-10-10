@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.NavController
 import com.syr.hiltdemo.R
-import com.syr.hiltdemo.base.BaseActivity
 import com.syr.hiltdemo.utils.setupWithNavController
+import com.syr.module_common.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 /**

@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.syr.hiltdemo.R
-import com.syr.hiltdemo.base.BaseActivity
 import com.syr.hiltdemo.databinding.ActivityMainBinding
 import com.syr.hiltdemo.module.home.HomeActivity
+import com.syr.module_common.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

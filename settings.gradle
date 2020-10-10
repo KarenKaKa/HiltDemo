@@ -1,2 +1,4 @@
+include ':module_custom'
+include ':module_common'
 rootProject.name='HiltDemo'
 include ':app'

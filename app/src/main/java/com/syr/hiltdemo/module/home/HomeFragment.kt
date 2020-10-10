@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.syr.hiltdemo.R
-import com.syr.hiltdemo.base.BaseFragment
 import com.syr.hiltdemo.module.details.DetailsActivity
+import com.syr.module_common.base.BaseFragment
+import com.syr.module_common.net.core.RouterHub
+import com.syr.module_common.net.core.Utils
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -49,6 +51,15 @@ class HomeFragment : BaseFragment() {
         } else if ("findFragment" == pageName) {
             text.text = "$pageName\nclick to 详情页"
             text.setOnClickListener { startActivity(Intent(activity, DetailsActivity::class.java)) }
+        } else if ("homeFragment" == pageName) {
+            text.text = "$pageName\nclick to 自定义view"
+            text.setOnClickListener {
+//                startActivity(Intent(activity, CustomActivity::class.java))
+                Utils.navigation(RouterHub.CUSTOM_DETAILSACTIVITY, context = mContent, args = Bundle().apply {
+                    putString("buttonText", "去首页")
+                })
+            }
+
         } else {
             text.text = "$from ${pageName ?: "This is Default HomeFragment"}"
         }

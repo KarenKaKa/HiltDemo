@@ -8,10 +8,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import com.syr.hiltdemo.HiltApp
 import com.syr.hiltdemo.R
-import com.syr.hiltdemo.base.BaseViewModel
-import com.syr.hiltdemo.base.ResultData
 import com.syr.hiltdemo.net.HiltRepository
-import com.syr.hiltdemo.utils.UiUtil
+import com.syr.module_common.base.BaseViewModel
+import com.syr.module_common.base.ResultData
+import com.syr.module_common.utils.UiUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -31,9 +31,8 @@ class MainViewModel @ViewModelInject constructor(
     fun afterPhoneChanged(phone: String?) {
         inputPhone = phone ?: ""
     }
-
     fun startRequest() {
-        if (!UiUtil.isAvailable()) {
+        if (!UiUtil.isAvailable(HiltApp.instance)) {
             Toast.makeText(HiltApp.instance, R.string.net_error, Toast.LENGTH_SHORT).show()
             return
         }
@@ -51,15 +50,15 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun userIdentityStatus() {
         launchUI {
-//            when (val bean =
-//                withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
-//                is ResultData.Success -> {
-//                    resultField.set("请求成功：${bean.data.status}")
-//                }
-//                is ResultData.Error -> {
-//                    resultField.set("请求失败：e=${bean.exception}")
-//                }
-//            }
+            when (val bean =
+                withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
+                is ResultData.Success -> {
+                    resultField.set("请求成功：${bean.data?.status}")
+                }
+                is ResultData.Error -> {
+                    resultField.set("请求失败：e=${bean.exception}")
+                }
+            }
 
             val bean1 =
                 withContext(Dispatchers.IO) { repository.userIdentityStatus1(mutableMapOf()) }
