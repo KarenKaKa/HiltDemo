@@ -16,6 +16,19 @@
         tools:context=".module.main.MainActivity">
 
         <TextView
+            android:id="@+id/tvAnchor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#30355a"
+            android:onClick='@{(view)->viewModel.showPopu(view)}'
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="下拉弹窗"
+            android:textColor="#fff"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/nav_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

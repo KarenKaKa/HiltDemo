@@ -1,5 +1,12 @@
 package com.syr.hiltdemo.module.main
 
+import android.app.Activity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.AutoCompleteTextView
+import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.databinding.ObservableField
 import androidx.hilt.Assisted
@@ -31,6 +38,7 @@ class MainViewModel @ViewModelInject constructor(
     fun afterPhoneChanged(phone: String?) {
         inputPhone = phone ?: ""
     }
+
     fun startRequest() {
         if (!UiUtil.isAvailable(HiltApp.instance)) {
             Toast.makeText(HiltApp.instance, R.string.net_error, Toast.LENGTH_SHORT).show()
@@ -87,5 +95,22 @@ class MainViewModel @ViewModelInject constructor(
                 }
             }
         }
+    }
+
+    private var popupWindow: PopupWindow? = null
+    private val names = mutableListOf("c北京", "c上海", "c四川", "c河南", "c天津", "c黑龙江")
+    fun showPopu(anchor: View) {
+        if (popupWindow != null && popupWindow?.isShowing == true) popupWindow?.dismiss()
+        popupWindow = null
+        val contentView = LayoutInflater.from(anchor.context).inflate(R.layout.layout_popuwindow, null)
+        val tvName = contentView.findViewById<AutoCompleteTextView>(R.id.tvName)
+        tvName.setAdapter(PopuwindowAdapter(anchor.context, android.R.layout.simple_spinner_dropdown_item, names))
+        tvName.threshold = 1
+        popupWindow = PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        popupWindow?.setBackgroundDrawable(anchor.context.resources.getDrawable(android.R.color.transparent))
+        popupWindow?.isOutsideTouchable = true
+        popupWindow?.isFocusable = true
+        popupWindow?.showAsDropDown(anchor)
+
     }
 }
