@@ -3,7 +3,6 @@ package com.syr.hiltdemo.module.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.databinding.ActivityMainBinding
 import com.syr.hiltdemo.module.home.HomeActivity
@@ -21,7 +20,7 @@ class MainActivity : BaseActivity() {
             this, R.layout.activity_main
         )
         binding.viewModel = viewModel
-        viewModel.toHome.observe(this, Observer { string ->
+        viewModel.toHome.observe(this, {
             startActivity(Intent(this, HomeActivity::class.java))
         })
     }

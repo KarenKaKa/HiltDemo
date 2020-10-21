@@ -8,7 +8,7 @@ import okhttp3.Response
  * @author songyaru
  * @date 2020/4/24
  */
-open interface GlobalHttpHandler {
+interface GlobalHttpHandler {
     fun onHttpResultResponse(httpResult: String?, chain: Interceptor.Chain?, response: Response?): Response?
 
     fun onHttpRequestBefore(chain: Interceptor.Chain?, request: Request?): Request?

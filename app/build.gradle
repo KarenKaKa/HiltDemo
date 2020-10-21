@@ -31,7 +31,7 @@ android {
 
     buildTypes {
         release {
-            buildConfigField "String", "BASE_URL", "\"https://github.com/\""
+            buildConfigField "String", "BASE_URL", url_api
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -39,7 +39,7 @@ android {
             zipAlignEnabled true
         }
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://github.com/\""
+            buildConfigField "String", "BASE_URL", url_apics
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
