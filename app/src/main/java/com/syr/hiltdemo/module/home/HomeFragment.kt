@@ -60,6 +60,11 @@ class HomeFragment : BaseFragment() {
                 })
             }
 
+        } else if ("sortFragment" == pageName) {
+            text.text = "$pageName\nclick to 自定义阴影"
+            text.setOnClickListener {
+                Utils.navigation(RouterHub.SHAPE_SHAPEACTIVITY, context = mContent)
+            }
         } else {
             text.text = "$from ${pageName ?: "This is Default HomeFragment"}"
         }

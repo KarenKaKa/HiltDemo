@@ -1,3 +1,4 @@
+include ':module_shape'
 include ':module_custom'
 include ':module_common'
 rootProject.name='HiltDemo'

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HiltDemo</string>
+    <string name="app_name">module_custom</string>
     <string name="title_draw_color">drawColor()</string>
     <string name="title_draw_circle">drawCircle()</string>
     <string name="title_draw_rect">drawRect()</string>

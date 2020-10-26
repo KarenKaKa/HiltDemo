@@ -1,10 +1,8 @@
 package com.syr.hiltdemo.module.main
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.AutoCompleteTextView
 import android.widget.PopupWindow
 import android.widget.Toast

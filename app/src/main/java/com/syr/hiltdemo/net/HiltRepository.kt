@@ -1,6 +1,6 @@
 package com.syr.hiltdemo.net
 
-import com.syr.hiltdemo.di.ApiService
+import com.syr.hiltdemo.ApiService
 import com.syr.module_common.base.BaseRepository
 import com.syr.module_common.base.ResultData
 import java.io.IOException

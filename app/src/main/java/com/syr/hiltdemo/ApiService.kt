@@ -1,4 +1,4 @@
-package com.syr.hiltdemo.di
+package com.syr.hiltdemo
 
 import com.syr.hiltdemo.net.vo.IdentityInfo
 import com.syr.hiltdemo.net.vo.TimeLineJson

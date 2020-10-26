@@ -1,5 +1,6 @@
 package com.syr.hiltdemo.di
 
+import com.syr.hiltdemo.ApiService
 import com.syr.hiltdemo.BuildConfig
 import com.syr.module_common.net.ApiFactory
 import com.syr.module_common.net.interceptor.RetryInterceptor
