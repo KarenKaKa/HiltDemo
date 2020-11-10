@@ -31,7 +31,7 @@ android {
 
     buildTypes {
         release {
-            buildConfigField "String", "BASE_URL", url_api
+//            buildConfigField "String", "BASE_URL", url_api
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -39,7 +39,7 @@ android {
             zipAlignEnabled true
         }
         debug {
-            buildConfigField "String", "BASE_URL", url_apics
+//            buildConfigField "String", "BASE_URL", url_apics
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -71,9 +71,9 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
 
     //test
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation "junit:junit:${test_versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${test_versions.ext_junit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${test_versions.espresso_core}"
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$dagger_version"

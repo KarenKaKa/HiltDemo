@@ -1,8 +1,8 @@
-package com.syr.hiltdemo.di
+package com.syr.module_custom.di
 
-import com.syr.hiltdemo.ApiService
 import com.syr.module_common.BuildConfig
 import com.syr.module_common.net.ApiFactory
+import com.syr.module_custom.ProductService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,10 +18,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
-
     @Singleton
     @Provides
-    fun provideApiService(apiFactory: ApiFactory): ApiService {
-        return apiFactory.createApiService(BuildConfig.BASE_URL, ApiService::class.java)
+    fun provideProductApiService(apiFactory: ApiFactory): ProductService {
+        return apiFactory.createApiService(BuildConfig.BASE_URL, ProductService::class.java)
     }
 }

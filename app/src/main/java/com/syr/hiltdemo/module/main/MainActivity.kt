@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.databinding.ActivityMainBinding
 import com.syr.hiltdemo.module.home.HomeActivity
+import com.syr.hiltdemo.utils.showToast
 import com.syr.module_common.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +17,9 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        showToast("我是自定义的toast")
+
         binding = DataBindingUtil.setContentView(
             this, R.layout.activity_main
         )

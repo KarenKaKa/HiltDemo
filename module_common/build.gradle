@@ -23,8 +23,16 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "String", "BASE_URL", url_api
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", url_api
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
         }
     }
 }
@@ -33,7 +41,7 @@ dependencies {
     api fileTree(dir: "libs", include: ["*.jar"])
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api 'androidx.appcompat:appcompat:1.2.0'
-    api 'androidx.constraintlayout:constraintlayout:2.0.2'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'com.google.android.material:material:1.2.1'
 
     // Architecture Components

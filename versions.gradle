@@ -37,3 +37,9 @@ def sign = [
 ]
 ext.sign = sign
 
+def test_versions = [
+        junit        : "4.13.1",
+        ext_junit    : "1.1.2",
+        espresso_core: "3.3.0"
+]
+ext.test_versions = test_versions
