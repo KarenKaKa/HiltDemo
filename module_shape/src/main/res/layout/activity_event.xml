@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/group1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/activity_dis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity dispatchTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/activity_dis_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/activity_group_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/activity_dis">
+
+                <RadioButton
+                    android:id="@+id/activity_group_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/activity_group_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/activity_group_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/activity_tou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activity onTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/activity_dis_rg" />
+
+            <RadioGroup
+                android:id="@+id/activity_tou_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/activity_tou_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/activity_tou">
+
+                <RadioButton
+                    android:id="@+id/activity_tou_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/activity_tou_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/activity_tou_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/group_int"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewGroup onInterceptTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/activity_tou_rg" />
+
+            <RadioGroup
+                android:id="@+id/group_int_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/group_int_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/group_int">
+
+                <RadioButton
+                    android:id="@+id/group_int_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/group_int_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/group_int_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/group_dis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewGroup dispatchTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/group_int_rg" />
+
+            <RadioGroup
+                android:id="@+id/group_dis_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/group_dis_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/group_dis">
+
+                <RadioButton
+                    android:id="@+id/group_dis_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/group_dis_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/group_dis_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/group_tou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ViewGroup onTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/group_dis_rg" />
+
+            <RadioGroup
+                android:id="@+id/group_tou_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/group_tou_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/group_tou">
+
+                <RadioButton
+                    android:id="@+id/group_tou_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/group_tou_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/group_tou_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/view_dis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View dispatchTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/group_tou_rg" />
+
+            <RadioGroup
+                android:id="@+id/view_dis_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/view_dis_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/view_dis">
+
+                <RadioButton
+                    android:id="@+id/view_dis_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/view_dis_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/view_dis_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/view_tou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View onTouchEvent返回值"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/view_dis_rg" />
+
+            <RadioGroup
+                android:id="@+id/view_tou_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/view_tou_rb1"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/view_tou">
+
+                <RadioButton
+                    android:id="@+id/view_tou_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="默认" />
+
+                <RadioButton
+                    android:id="@+id/view_tou_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="true" />
+
+                <RadioButton
+                    android:id="@+id/view_tou_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="false" />
+            </RadioGroup>
+
+            <com.syr.module_shape.CustomLinearLayout
+                android:id="@+id/group"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/cardview_dark_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/view_tou_rg">
+
+                <com.syr.module_shape.CustomView
+                    android:id="@+id/view"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@color/colorPrimaryDark" />
+            </com.syr.module_shape.CustomLinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

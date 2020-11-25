@@ -65,6 +65,11 @@ class HomeFragment : BaseFragment() {
             text.setOnClickListener {
                 Utils.navigation(RouterHub.SHAPE_SHAPEACTIVITY, context = mContent)
             }
+        } else if ("cartFragment" == pageName) {
+            text.text = "$pageName\nclick to 事件传递"
+            text.setOnClickListener {
+                Utils.navigation(RouterHub.SHAPE_EVENTACTIVITY, context = mContent)
+            }
         } else {
             text.text = "$from ${pageName ?: "This is Default HomeFragment"}"
         }

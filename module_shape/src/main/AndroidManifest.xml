@@ -9,5 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ShapeActivity" />
+        <activity android:name=".EventActivity" />
     </application>
 </manifest>

@@ -11,4 +11,5 @@ object RouterHub {
     const val CUSTOM_DETAILSACTIVITY = "$CUSTOM/DetailsActivity"
 
     const val SHAPE_SHAPEACTIVITY = "$SHAPE/ShapeActivity"
+    const val SHAPE_EVENTACTIVITY = "$SHAPE/EventActivity"
 }
