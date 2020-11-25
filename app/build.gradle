@@ -31,16 +31,12 @@ android {
 
     buildTypes {
         release {
-//            buildConfigField "String", "BASE_URL", url_api
-
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
             zipAlignEnabled true
         }
         debug {
-//            buildConfigField "String", "BASE_URL", url_apics
-
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
@@ -53,8 +49,8 @@ android {
         targetCompatibility versions.targetCompatibility
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
     kotlinOptions {
         jvmTarget = versions.jvmTarget
@@ -67,8 +63,8 @@ dependencies {
         implementation project(":module_custom")
         implementation project(":module_shape")
     }
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.1"
 
     //test
     testImplementation "junit:junit:${test_versions.junit}"
