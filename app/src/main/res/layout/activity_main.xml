@@ -29,6 +29,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvHandler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#30355a"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="主线程向子线程发送消息"
+            android:textColor="#fff"
+            app:layout_constraintLeft_toRightOf="@id/tvAnchor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/nav_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
