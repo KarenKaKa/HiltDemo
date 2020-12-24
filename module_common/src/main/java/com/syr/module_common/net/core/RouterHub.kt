@@ -7,9 +7,12 @@ object RouterHub {
     private const val APP = "/app"
     private const val CUSTOM = "/custom"
     private const val SHAPE = "/shape"
+    private const val ALGORITHM = "/algorithm"
 
     const val CUSTOM_DETAILSACTIVITY = "$CUSTOM/DetailsActivity"
 
     const val SHAPE_SHAPEACTIVITY = "$SHAPE/ShapeActivity"
     const val SHAPE_EVENTACTIVITY = "$SHAPE/EventActivity"
+
+    const val ALGORITHM_ALGORITHMACTIVITY = "$ALGORITHM/AlgorithmActivity"
 }
