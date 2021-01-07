@@ -1,8 +1,0 @@
-apply from: "../module_build.gradle"
-
-android {
-}
-
-dependencies {
-    api project(":module_common")
-}

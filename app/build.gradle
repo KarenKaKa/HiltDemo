@@ -62,7 +62,6 @@ dependencies {
     if (!isBuildModule.toBoolean()) {
         implementation project(":module_custom")
         implementation project(":module_shape")
-        implementation project(":module_algorithm")
     }
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
