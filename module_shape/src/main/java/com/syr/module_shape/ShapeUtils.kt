@@ -95,11 +95,35 @@ object ShapeUtils {
             initializeElevationOverlay(context)
             //阴影大小
             elevation = 16.dp
+            translationZ = 0f
 //            setShadowColor(Color.parseColor("#CCCCCC"))
             //阴影颜色
             setShadowColor(Color.RED)
             //阴影垂直位移，越大越向下
             shadowVerticalOffset = 0
+            shadowCompatRotation = 0
+        }
+    }
+
+    fun getShadowDrawable1(context: Context): Drawable {
+        val shapePathModel = ShapeAppearanceModel.builder()
+            .setAllCorners(CornerFamily.ROUNDED, 4.dp)
+            .build()
+        return MaterialShapeDrawable(shapePathModel).apply {
+            paintStyle = Paint.Style.FILL
+            //背景色
+            setTint(Color.WHITE)
+            shadowCompatibilityMode = MaterialShapeDrawable.SHADOW_COMPAT_MODE_ALWAYS
+            initializeElevationOverlay(context)
+            //阴影大小
+            elevation = 16.dp
+            translationZ = 10.dp
+
+//            setShadowColor(Color.parseColor("#33898E8D"))
+            //阴影颜色
+            setShadowColor(Color.RED)
+            //阴影垂直位移，越大越向下
+            shadowVerticalOffset = 10
             shadowCompatRotation = 0
         }
     }

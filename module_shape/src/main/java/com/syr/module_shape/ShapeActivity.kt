@@ -26,7 +26,11 @@ class ShapeActivity : BaseActivity() {
         tvGetShapeDrawable.background = ShapeUtils.getShapeDrawable()
         tvGetShapeDrawable2.background = ShapeUtils.getShapeDrawable2()
         tvGetShapeDrawable3.background = ShapeUtils.getShapeDrawable3()
-        (tvGetShadowDrawable.parent as? ViewGroup)?.clipChildren = false
+
+//        (tvGetShadowDrawable.parent as? ViewGroup)?.clipChildren = false
         tvGetShadowDrawable.background = ShapeUtils.getShadowDrawable(this)
+
+//        (tvGetShadowDrawable1.parent as? ViewGroup)?.clipChildren = false
+        tvGetShadowDrawable1.background = ShapeUtils.getShadowDrawable1(this)
     }
 }

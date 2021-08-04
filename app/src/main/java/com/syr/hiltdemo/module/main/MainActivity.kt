@@ -31,7 +31,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         showToast("我是自定义的toast")
 
-        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
+//        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
+        Utils.navigation(RouterHub.SHAPE_SHAPEACTIVITY, context = this)
         finish()
 
         binding = DataBindingUtil.setContentView(
