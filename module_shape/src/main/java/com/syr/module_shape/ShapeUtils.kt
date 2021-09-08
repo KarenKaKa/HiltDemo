@@ -5,13 +5,30 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
+import android.view.ViewGroup
 import androidx.annotation.ColorInt
+import androidx.cardview.widget.CardView
 import com.google.android.material.shape.*
 import com.syr.module_common.utils.dp
 
 /**
  * Created by songyaru on 2020/10/22.
  */
+
+fun ViewGroup.shadowConfigure() {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+        translationZ = 2.dp
+        if (this is CardView) cardElevation = 4.dp
+        else elevation = 4.dp
+    } else {
+         translationZ = 12.dp
+         if (this is CardView) cardElevation = 12.dp
+         else elevation = 12.dp
+         outlineSpotShadowColor = context.getColor(R.color.colorAccent)
+    }
+}
+
 object ShapeUtils {
 
     fun getGradientDrawable(
