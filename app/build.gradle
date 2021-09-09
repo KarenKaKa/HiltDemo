@@ -37,8 +37,7 @@ android {
             zipAlignEnabled true
         }
         debug {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
             zipAlignEnabled true
@@ -67,6 +66,7 @@ dependencies {
     }
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation 'androidx.biometric:biometric:1.2.0-alpha03'
 
     //test
     testImplementation "junit:junit:${test_versions.junit}"

@@ -24,8 +24,8 @@ def versions = [
 ext.versions = versions
 
 def arouter_versions = [
-        arouter_api     : "1.5.0",
-        arouter_compiler: "1.2.2"
+        arouter_api     : "1.5.2",
+        arouter_compiler: "1.5.2"
 ]
 ext.arouter_versions = arouter_versions
 
