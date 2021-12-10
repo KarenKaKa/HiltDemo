@@ -8,6 +8,8 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.databinding.ActivityMainBinding
+import com.syr.hiltdemo.module.details.ContainerActivity
+import com.syr.hiltdemo.module.details.SourceFrom
 import com.syr.hiltdemo.module.home.HomeActivity
 import com.syr.hiltdemo.utils.showToast
 import com.syr.module_common.base.BaseActivity
@@ -31,8 +33,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         showToast("我是自定义的toast")
 
-        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
-        finish()
+//        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
+//        finish()
 
         binding = DataBindingUtil.setContentView(
             this, R.layout.activity_main
@@ -86,6 +88,10 @@ class MainActivity : BaseActivity() {
         binding.tvHandler.setOnClickListener {
             Log.e("okhttp", "3 Thread.name=${Thread.currentThread().name}")
             threadHandler.sendEmptyMessage(111)
+        }
+
+        binding.toArticlesFragment.setOnClickListener {
+            ContainerActivity.launchActivity(this, SourceFrom.ARTICLES)
         }
     }
 }

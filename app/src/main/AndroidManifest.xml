@@ -21,5 +21,6 @@
             android:name=".module.home.HomeActivity"
             android:launchMode="singleTask" />
         <activity android:name=".module.details.DetailsActivity" />
+        <activity android:name=".module.details.ContainerActivity" />
     </application>
 </manifest>

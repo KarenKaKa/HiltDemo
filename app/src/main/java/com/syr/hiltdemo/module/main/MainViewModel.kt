@@ -1,5 +1,6 @@
 package com.syr.hiltdemo.module.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,20 +15,22 @@ import androidx.lifecycle.SavedStateHandle
 import com.syr.hiltdemo.HiltApp
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.net.HiltRepository
+import com.syr.hiltdemo.utils.showToast
 import com.syr.module_common.base.BaseViewModel
 import com.syr.module_common.base.ResultData
+import com.syr.module_common.common.ArticlesResp
+import com.syr.module_common.common.getCommonRepository
 import com.syr.module_common.utils.UiUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-/**
- * @author songyaru
- * @date 2020/8/17
- */
 class MainViewModel @ViewModelInject constructor(
     private val repository: HiltRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
+    // 跨module获取repository
+    private val commonRepository by lazy { HiltApp.instance.getCommonRepository() }
+    val articles = MutableLiveData<List<ArticlesResp.Data.Article?>>()
 
     val resultField = ObservableField<String>("Hello World!")
     val toHome = MutableLiveData<String>()
@@ -52,6 +55,21 @@ class MainViewModel @ViewModelInject constructor(
 
     fun navigation2Home() {
         toHome.value = null
+    }
+
+    fun getArticles() {
+        launchUI {
+            val bean = withContext(Dispatchers.IO) { commonRepository.getArticles() }
+            when (bean) {
+                is ResultData.Success -> {
+                    articles.value = bean.data.data?.datas
+                }
+                is ResultData.Error -> {
+                    Log.e("okhttp", "请求失败：e=${bean.exception}")
+                    HiltApp.instance.showToast("请求失败：e=${bean.exception}")
+                }
+            }
+        }
     }
 
     private fun userIdentityStatus() {

@@ -38,6 +38,9 @@ class ApiFactory(private val interceptors: List<Interceptor> = listOf()) {
             if (!BuildConfig.DEBUG) {
                 proxy(Proxy.NO_PROXY)
             }
+
+            sslSocketFactory(SSLSocketClient.sSLSocketFactory, SSLSocketClient.trustManager)
+            hostnameVerifier(SSLSocketClient.hostnameVerifier)
         }.build()
     }
 
