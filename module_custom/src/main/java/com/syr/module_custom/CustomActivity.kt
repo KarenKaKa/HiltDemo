@@ -30,7 +30,8 @@ class CustomActivity : BaseActivity() {
         PageModel(R.layout.sample_arc, R.string.title_draw_arc, R.layout.practice_arc),
         PageModel(R.layout.sample_path, R.string.title_draw_path, R.layout.practice_path),
         PageModel(R.layout.sample_histogram, R.string.title_draw_histogram, R.layout.practice_histogram),
-        PageModel(R.layout.sample_pie_chart, R.string.title_draw_pie_chart, R.layout.practice_pie_chart)
+        PageModel(R.layout.sample_pie_chart, R.string.title_draw_pie_chart, R.layout.practice_pie_chart),
+        PageModel(R.layout.layout_code_input, R.string.title_code_input, R.layout.layout_code_input)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

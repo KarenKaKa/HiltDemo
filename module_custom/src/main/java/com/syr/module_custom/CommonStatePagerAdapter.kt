@@ -12,6 +12,9 @@ class CommonStatePagerAdapter(activity: FragmentActivity, private val pageModels
     override fun getItemCount() = pageModels.size.coerceAtLeast(0)
 
     override fun createFragment(position: Int): Fragment {
-        return PageFragment.newInstance(pageModels[position].sampleLayoutRes, pageModels[position].practiceLayoutRes)
+        return if (position == 11) CodeInputFragment() else PageFragment.newInstance(
+            pageModels[position].sampleLayoutRes,
+            pageModels[position].practiceLayoutRes
+        )
     }
 }

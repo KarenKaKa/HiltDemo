@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <com.syr.module_custom.practice.CodeInputView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        app:field_count="4"
+        app:field_height="40dp"
+        app:field_margin="10dp"
+        app:field_showKeyboard="true"
+        app:field_width="40dp"
+        app:inputType="number" />
+
+    <com.syr.module_custom.practice.CodeInputView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp"
+        app:field_background="@drawable/bg_selectro_code_input_view"
+        app:field_count="6"
+        app:field_height="50dp"
+        app:field_margin="10dp"
+        app:field_showKeyboard="true"
+        app:field_width="40dp"
+        app:inputType="text" />
+
+    <com.syr.module_custom.practice.CodeInputView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp"
+        app:field_background="@drawable/bg_selectro_code_input_view"
+        app:field_count="8"
+        app:field_height="50dp"
+        app:field_margin="10dp"
+        app:field_showKeyboard="true"
+        app:field_width="40dp"
+        app:inputType="numPassword" />
+</LinearLayout>

@@ -1,9 +1,11 @@
-package com.syr.hiltdemo.module.details
+package com.syr.hiltdemo.module
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.syr.hiltdemo.R
+import com.syr.hiltdemo.module.details.ArticlesFragment
+import com.syr.hiltdemo.module.details.SourceFrom
 import com.syr.hiltdemo.module.home.HomeFragment
 import com.syr.module_common.base.BaseActivity
 import com.syr.module_common.utils.replaceFragment
@@ -14,8 +16,7 @@ internal class ContainerActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_container)
-        val from = intent.getStringExtra(FROM)
-        when (from) {
+        when (intent.getStringExtra(FROM)) {
             SourceFrom.ARTICLES -> replaceFragment(R.id.fragment_container, ArticlesFragment.newInstance())
             SourceFrom.DETAILS -> replaceFragment(R.id.fragment_container, HomeFragment())
             else -> finish()

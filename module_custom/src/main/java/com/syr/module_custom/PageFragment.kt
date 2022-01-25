@@ -8,9 +8,6 @@ import android.view.ViewStub
 import androidx.annotation.LayoutRes
 import com.syr.module_common.base.BaseFragment
 
-/**
- * Created by songyaru on 2020/9/27.
- */
 class PageFragment : BaseFragment() {
     @LayoutRes
     private var sampleLayoutRes = 0

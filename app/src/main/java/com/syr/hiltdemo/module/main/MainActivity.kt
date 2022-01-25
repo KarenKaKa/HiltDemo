@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.databinding.ActivityMainBinding
-import com.syr.hiltdemo.module.details.ContainerActivity
+import com.syr.hiltdemo.module.ContainerActivity
 import com.syr.hiltdemo.module.details.SourceFrom
 import com.syr.hiltdemo.module.home.HomeActivity
 import com.syr.hiltdemo.utils.showToast
