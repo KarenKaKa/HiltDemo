@@ -93,7 +93,7 @@ class CodeInputView(context: Context, attrs: AttributeSet?) : ViewGroup(context,
                 editText.requestFocus()
             }
             editText.showSoftInputOnFocus = fieldShowKeyboard
-            if(fieldShowKeyboard) {
+            if (fieldShowKeyboard) {
                 // TODO 自动调起系统键盘
 
             }
@@ -206,8 +206,8 @@ class CodeInputView(context: Context, attrs: AttributeSet?) : ViewGroup(context,
             }
 
             setMeasuredDimension(
-                resolveSize(maxWidth, widthMeasureSpec),
-                resolveSize(child.measuredHeight, heightMeasureSpec)
+                resolveSize(maxWidth + paddingStart + paddingEnd, widthMeasureSpec),
+                resolveSize(child.measuredHeight + paddingTop + paddingBottom, heightMeasureSpec)
             )
         }
     }
@@ -219,9 +219,9 @@ class CodeInputView(context: Context, attrs: AttributeSet?) : ViewGroup(context,
             child.visibility = VISIBLE
             val cWidth = child.measuredWidth
             val cHeight = child.measuredHeight
-            val cl = i * (cWidth + fieldMargin)
+            val cl = paddingStart + i * (cWidth + fieldMargin)
             val cr = cl + cWidth
-            val ct = child.top
+            val ct = paddingTop
             val cb = ct + cHeight
             child.layout(cl, ct, cr, cb)
         }
