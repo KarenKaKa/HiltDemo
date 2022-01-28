@@ -238,14 +238,8 @@ class CodeInputView(context: Context, attrs: AttributeSet?) : ViewGroup(context,
     // 删除当前focus位
     fun deleteText() {
         val editText = getChildAt(focusIndex)
-        if (editText is EditText) {
-            if (editText.id == focusIndex && editText.text.isBlank()) {
-                backFocus(editText, focusIndex)
-            } else if (editText.id > 0) {
-                val keyEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)
-                editText.onKeyDown(keyEvent.keyCode, keyEvent)
-            }
-        }
+        val keyEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)
+        editText.dispatchKeyEvent(keyEvent)
     }
 
     // 返回code
