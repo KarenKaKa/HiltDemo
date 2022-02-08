@@ -74,10 +74,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${test_versions.espresso_core}"
 
     // Hilt
-    implementation "com.google.dagger:hilt-android:$dagger_version"
-    kapt "com.google.dagger:hilt-android-compiler:${dagger_version}"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_version"
-    kapt "androidx.hilt:hilt-compiler:$hilt_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     //arouter
     kapt "com.alibaba:arouter-compiler:${arouter_versions.arouter_compiler}"

@@ -1,7 +1,6 @@
 package com.syr.module_common.common
 
 import android.content.Context
-import com.syr.module_common.CommonRepository
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors

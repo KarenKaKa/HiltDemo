@@ -1,8 +1,13 @@
-package com.syr.module_common
+package com.syr.module_common.common
 
 import com.syr.module_common.base.BaseRepository
 import com.syr.module_common.base.ResultData
+import com.syr.module_common.common.ArticlesResp
 import com.syr.module_common.common.CommonApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 /**
@@ -16,6 +21,11 @@ class CommonRepository @Inject constructor(
     suspend fun getArticles() = createCallWithoutIntercept {
         val repository = api.getArticles()
         return@createCallWithoutIntercept ResultData.Success(repository)
+    }
+
+    val getArticles: Flow<ArticlesResp> = flow{
+        emit(api.getArticles()) // Emits the result of the request to the flow
+        delay(1000) // Suspends the coroutine for some time
     }
 
     // module私有方法

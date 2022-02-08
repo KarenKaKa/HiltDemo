@@ -8,8 +8,6 @@ import android.widget.AutoCompleteTextView
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.databinding.ObservableField
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import com.syr.hiltdemo.HiltApp
@@ -21,12 +19,15 @@ import com.syr.module_common.base.ResultData
 import com.syr.module_common.common.ArticlesResp
 import com.syr.module_common.common.getCommonRepository
 import com.syr.module_common.utils.UiUtil
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val repository: HiltRepository,
-    @Assisted private val savedStateHandle: SavedStateHandle
+    private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
     // 跨module获取repository
     private val commonRepository by lazy { HiltApp.instance.getCommonRepository() }

@@ -6,12 +6,12 @@
 ext.url_api = "\"https://github.com/\""
 ext.url_apics = "\"https://github.com/\""
 
-ext.kotlin_version = '1.4.21'
-ext.dagger_version = '2.30.1-alpha'
-ext.hilt_version = '1.0.0-alpha02'
+ext.kotlin_version = '1.6.10'
+ext.hilt_version = '2.40.5'
+//ext.hilt_version = '1.0.0-alpha03'
 
 def versions = [
-        compileSdkVersion  : 29,
+        compileSdkVersion  : 30,
         buildToolsVersion  : "29.0.3",
         minSdkVersion      : 21,
         targetSdkVersion   : 29,
