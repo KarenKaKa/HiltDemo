@@ -115,5 +115,6 @@ class MainActivity : BaseActivity() {
             ContainerActivity.launchActivity(this, SourceFrom.ARTICLES)
         }
         binding.tvAnchor.setOnClickListener { viewModel.showPopu(binding.tvAnchor) }
+
     }
 }
