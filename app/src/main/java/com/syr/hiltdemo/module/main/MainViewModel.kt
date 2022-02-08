@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import com.syr.hiltdemo.HiltApp
 import com.syr.hiltdemo.R
 import com.syr.hiltdemo.net.HiltRepository
@@ -21,6 +22,8 @@ import com.syr.module_common.common.getCommonRepository
 import com.syr.module_common.utils.UiUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -31,10 +34,10 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
     // 跨module获取repository
     private val commonRepository by lazy { HiltApp.instance.getCommonRepository() }
-    val articles = MutableLiveData<List<ArticlesResp.Data.Article?>>()
+    val articles = MutableLiveData<List<ArticlesResp.Data.Article?>?>()
 
-    val resultField = ObservableField<String>("Hello World!")
-    val toHome = MutableLiveData<String>()
+//    val resultField = ObservableField("Hello World!")
+    val toHome = MutableLiveData<String?>()
     private var inputPhone = ""
 
     fun afterPhoneChanged(phone: String?) {
@@ -58,6 +61,12 @@ class MainViewModel @Inject constructor(
         toHome.value = null
     }
 
+    val articlesFlow = commonRepository.getArticlesFlow.stateIn(
+        scope = viewModelScope,
+        started = WhileSubscribed(5000),
+        initialValue = null
+    )
+
     fun getArticles() {
         launchUI {
             val bean = withContext(Dispatchers.IO) { commonRepository.getArticles() }
@@ -78,10 +87,10 @@ class MainViewModel @Inject constructor(
             when (val bean =
                 withContext(Dispatchers.IO) { repository.userIdentityStatus(mutableMapOf()) }) {
                 is ResultData.Success -> {
-                    resultField.set("请求成功：${bean.data?.status}")
+//                    resultField.set("请求成功：${bean.data?.status}")
                 }
                 is ResultData.Error -> {
-                    resultField.set("请求失败：e=${bean.exception}")
+//                    resultField.set("请求失败：e=${bean.exception}")
                 }
             }
 
@@ -89,10 +98,10 @@ class MainViewModel @Inject constructor(
                 withContext(Dispatchers.IO) { repository.userIdentityStatus1(mutableMapOf()) }
             when (bean1) {
                 is ResultData.Success -> {
-                    resultField.set("请求成功：${bean1.data.status}")
+//                    resultField.set("请求成功：${bean1.data.status}")
                 }
                 is ResultData.ErrorMessage -> {
-                    resultField.set("请求失败：e=${bean1.errorMessage}")
+//                    resultField.set("请求失败：e=${bean1.errorMessage}")
                 }
             }
         }
@@ -105,10 +114,10 @@ class MainViewModel @Inject constructor(
             val bean = withContext(Dispatchers.IO) { repository.timelineJson() }
             when (bean) {
                 is ResultData.Success -> {
-                    resultField.set("请求成功成功：${bean.data.message}\n${bean.data.documentation_url}")
+//                    resultField.set("请求成功成功：${bean.data.message}\n${bean.data.documentation_url}")
                 }
                 is ResultData.Error -> {
-                    resultField.set("请求失败：e=${bean.exception}")
+//                    resultField.set("请求失败：e=${bean.exception}")
                 }
             }
         }

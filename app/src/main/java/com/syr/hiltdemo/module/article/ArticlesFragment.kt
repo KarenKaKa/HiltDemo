@@ -5,30 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.syr.hiltdemo.R
+import com.syr.hiltdemo.databinding.FragmentArticlesBinding
+import com.syr.hiltdemo.databinding.LayoutItemBinding
 import com.syr.hiltdemo.module.main.MainViewModel
 import com.syr.module_common.base.BaseFragment
 import com.syr.module_common.common.ArticlesResp
 import com.syr.module_common.utils.AdapterViewHolder
-import com.syr.module_common.utils.inflate
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_articles.*
-import kotlinx.android.synthetic.main.layout_item.view.*
 
 @AndroidEntryPoint
 internal class ArticlesFragment : BaseFragment() {
 
+    private lateinit var binding: FragmentArticlesBinding
+
     private val viewModel by viewModels<MainViewModel>()
     private val articlesAdapter: ArticlesAdapter by lazy { ArticlesAdapter() }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_articles, container, false)
+        binding = FragmentArticlesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        recyclerView.apply {
+        binding.recyclerView.apply {
             adapter = articlesAdapter
         }
 
@@ -45,20 +45,23 @@ internal class ArticlesFragment : BaseFragment() {
 }
 
 internal class ArticlesAdapter(
-    var dataList: List<ArticlesResp.Data.Article?> = listOf()
+    var dataList: List<ArticlesResp.Data.Article?>? = listOf()
 ) : RecyclerView.Adapter<AdapterViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder =
-        AdapterViewHolder(parent.inflate(R.layout.layout_item))
+    private lateinit var binding: LayoutItemBinding
 
-    override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
-        val data = dataList[position] ?: return
-        holder.itemView.apply {
-            title.text = data.title
-            date.text = "${data.shareUser} ${data.niceDate}"
-        }
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
+        binding = LayoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return AdapterViewHolder(binding.root)
     }
 
-    override fun getItemCount() = dataList.size.coerceAtLeast(0)
+    override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
+        val data = dataList?.get(position) ?: return
+        holder.itemView.apply {
+            binding.title.text = data.title
+            binding.date.text = "${data.shareUser} ${data.niceDate}"
+        }
+    }
+
+    override fun getItemCount() = dataList?.size?.coerceAtLeast(0) ?: 0
 
 }

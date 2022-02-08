@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import com.syr.hiltdemo.R
 import com.syr.hiltdemo.databinding.ActivityMainBinding
 import com.syr.hiltdemo.module.ContainerActivity
 import com.syr.hiltdemo.module.details.SourceFrom
@@ -18,7 +16,6 @@ import com.syr.module_common.net.core.RouterHub
 import com.syr.module_common.net.core.Utils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -51,22 +48,19 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        countDownTimer.launchIn(lifecycleScope)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        countDownTimer.launchIn(lifecycleScope)
+        initListener()
 //        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
 //        finish()
 
-        binding = DataBindingUtil.setContentView(
-            this, R.layout.activity_main
-        )
-        binding.viewModel = viewModel
-        viewModel.toHome.observe(this, {
+//        binding.viewModel = viewModel
+        viewModel.toHome.observe(this) {
             startActivity(Intent(this, HomeActivity::class.java))
-        })
-
-        binding.tvAlgorithm.setOnClickListener {
-            Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
         }
+
         mHandler = Companion.MyHandler(this) {
             when (it.what) {
                 0 -> {
@@ -100,10 +94,17 @@ class MainActivity : BaseActivity() {
             Looper.loop()
         }
 
-        GlobalScope.launch {
+        lifecycleScope.launch {
             delay(1000)
             Log.e(TAG, "2 Thread.name=${Thread.currentThread().name}")
             threadHandler.sendEmptyMessage(1)
+        }
+
+    }
+
+    private fun initListener() {
+        binding.tvAlgorithm.setOnClickListener {
+            Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
         }
         binding.tvHandler.setOnClickListener {
             Log.e(TAG, "3 Thread.name=${Thread.currentThread().name}")
@@ -113,5 +114,6 @@ class MainActivity : BaseActivity() {
         binding.toArticlesFragment.setOnClickListener {
             ContainerActivity.launchActivity(this, SourceFrom.ARTICLES)
         }
+        binding.tvAnchor.setOnClickListener { viewModel.showPopu(binding.tvAnchor) }
     }
 }

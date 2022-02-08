@@ -6,28 +6,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.syr.hiltdemo.R
+import com.syr.hiltdemo.databinding.FragmentHomeBinding
 import com.syr.hiltdemo.module.details.DetailsActivity
 import com.syr.module_common.base.BaseFragment
 import com.syr.module_common.net.core.RouterHub
 import com.syr.module_common.net.core.Utils
-import kotlinx.android.synthetic.main.fragment_home.*
 
-/**
- * @author songyaru
- * @date 2020/8/21
- */
 class HomeFragment : BaseFragment() {
-//    private val viewModel by viewModels<MainViewModel>()
-//    private lateinit var binding: ActivityMainBinding
+    //    private val viewModel by viewModels<MainViewModel>()
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        binding = DataBindingUtil.inflate(inflater, R.layout.activity_main, container, false)
-//        return binding.root
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -38,8 +32,8 @@ class HomeFragment : BaseFragment() {
         Log.e("okhttp", "pageName=$pageName from=$from")
 
         if ("mineFragment" == pageName) {
-            text.text = "$pageName\nclick to 首页"
-            text.setOnClickListener {
+            binding.text.text = "$pageName\nclick to 首页"
+            binding.text.setOnClickListener {
                 startActivity(Intent(activity, HomeActivity::class.java).apply {
                     putExtra("from", "from mineFragment")
                 })
@@ -49,11 +43,11 @@ class HomeFragment : BaseFragment() {
 //                Navigation.findNavController(text).navigate(R.id.action_show_home)
             }
         } else if ("findFragment" == pageName) {
-            text.text = "$pageName\nclick to 详情页"
-            text.setOnClickListener { startActivity(Intent(activity, DetailsActivity::class.java)) }
+            binding.text.text = "$pageName\nclick to 详情页"
+            binding.text.setOnClickListener { startActivity(Intent(activity, DetailsActivity::class.java)) }
         } else if ("homeFragment" == pageName) {
-            text.text = "$pageName\nclick to 自定义view"
-            text.setOnClickListener {
+            binding.text.text = "$pageName\nclick to 自定义view"
+            binding.text.setOnClickListener {
 //                startActivity(Intent(activity, CustomActivity::class.java))
                 Utils.navigation(RouterHub.CUSTOM_DETAILSACTIVITY, context = mContent, args = Bundle().apply {
                     putString("buttonText", "去首页")
@@ -61,17 +55,17 @@ class HomeFragment : BaseFragment() {
             }
 
         } else if ("sortFragment" == pageName) {
-            text.text = "$pageName\nclick to 自定义阴影"
-            text.setOnClickListener {
+            binding.text.text = "$pageName\nclick to 自定义阴影"
+            binding.text.setOnClickListener {
                 Utils.navigation(RouterHub.SHAPE_SHAPEACTIVITY, context = mContent)
             }
         } else if ("cartFragment" == pageName) {
-            text.text = "$pageName\nclick to 事件传递"
-            text.setOnClickListener {
+            binding.text.text = "$pageName\nclick to 事件传递"
+            binding.text.setOnClickListener {
                 Utils.navigation(RouterHub.SHAPE_EVENTACTIVITY, context = mContent)
             }
         } else {
-            text.text = "$from ${pageName ?: "This is Default HomeFragment"}"
+            binding.text.text = "$from ${pageName ?: "This is Default HomeFragment"}"
         }
     }
 }
