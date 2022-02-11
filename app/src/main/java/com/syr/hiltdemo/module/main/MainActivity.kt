@@ -56,7 +56,7 @@ class MainActivity : BaseActivity() {
 //        Utils.navigation(RouterHub.ALGORITHM_ALGORITHMACTIVITY, this)
 //        finish()
 
-//        binding.viewModel = viewModel
+        binding.viewModel = viewModel
         viewModel.toHome.observe(this) {
             startActivity(Intent(this, HomeActivity::class.java))
         }
@@ -114,7 +114,7 @@ class MainActivity : BaseActivity() {
         binding.toArticlesFragment.setOnClickListener {
             ContainerActivity.launchActivity(this, SourceFrom.ARTICLES)
         }
-        binding.tvAnchor.setOnClickListener { viewModel.showPopu(binding.tvAnchor) }
+//        binding.tvAnchor.setOnClickListener { viewModel.showPopu(binding.tvAnchor) }
 
     }
 }

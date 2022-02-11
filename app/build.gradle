@@ -48,12 +48,10 @@ android {
         targetCompatibility versions.targetCompatibility
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
-//    dataBinding {
-//        enabled = true
-//    }
     kotlinOptions {
         jvmTarget = versions.jvmTarget
     }

@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.google.android.material.tabs.TabLayoutMediator
 import com.syr.module_common.base.BaseActivity
 import com.syr.module_common.net.core.RouterHub
-import kotlinx.android.synthetic.main.activity_custom.*
+import com.syr.module_custom.databinding.ActivityCustomBinding
 
 /**
  * 自定义view
@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_custom.*
  */
 @Route(path = RouterHub.CUSTOM_DETAILSACTIVITY)
 class CustomActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityCustomBinding
+
     @Autowired
     @JvmField
     var buttonText = "toHomeFragment"
@@ -36,13 +39,14 @@ class CustomActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_custom)
+        binding = ActivityCustomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.title = buttonText
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewpager.adapter = CommonStatePagerAdapter(this, pageModels)
-        TabLayoutMediator(tabLayout, viewpager) { tab, position ->
+        binding.viewpager.adapter = CommonStatePagerAdapter(this, pageModels)
+        TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
             tab.text = getString(pageModels[position].titleRes)
         }.attach()
     }

@@ -3,7 +3,6 @@ package com.syr.module_shape
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
-import androidx.databinding.DataBindingUtil
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.syr.module_common.base.BaseActivity
 import com.syr.module_common.net.core.RouterHub
@@ -21,9 +20,9 @@ class EventActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(
-            this, R.layout.activity_event
-        )
+        binding = ActivityEventBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.activityDisRg.setOnCheckedChangeListener { group, checkedId ->
             activityDis = when (checkedId) {
                 R.id.activity_group_rb2 -> true
@@ -77,13 +76,13 @@ class EventActivity : BaseActivity() {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-            Log.e("okhttp", "Activity onTouchEvent event=${event?.action}")
+        Log.e("okhttp", "Activity onTouchEvent event=${event?.action}")
         activityTou?.let { return it }
         return super.onTouchEvent(event)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-            Log.e("okhttp", "Activity dispatchTouchEvent event=${event?.action}")
+        Log.e("okhttp", "Activity dispatchTouchEvent event=${event?.action}")
         activityDis?.let { return it }
         return super.dispatchTouchEvent(event)
     }
