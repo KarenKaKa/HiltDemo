@@ -7,7 +7,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
-import com.syr.hiltdemo.R
+import androidx.annotation.LayoutRes
+import com.syr.module_common.R
 
 /**
  * View 扩展方法

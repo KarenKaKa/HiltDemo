@@ -12,4 +12,5 @@
     <string name="title_draw_histogram">直方图</string>
     <string name="title_draw_pie_chart">饼图</string>
     <string name="title_code_input">验证码输入框</string>
+    <string name="title_item_sort">拖动排序</string>
 </resources>

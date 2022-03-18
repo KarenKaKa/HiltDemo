@@ -23,6 +23,8 @@ class CustomActivity : BaseActivity() {
     var buttonText = "toHomeFragment"
 
     private val pageModels = mutableListOf(
+        PageModel(R.layout.layout_code_input, R.string.title_code_input, R.layout.layout_code_input),
+        PageModel(R.layout.fragment_item_touch_helper, R.string.title_item_sort, R.layout.fragment_item_touch_helper),
         PageModel(R.layout.sample_color, R.string.title_draw_color, R.layout.practice_color),
         PageModel(R.layout.sample_circle, R.string.title_draw_circle, R.layout.practice_circle),
         PageModel(R.layout.sample_rect, R.string.title_draw_rect, R.layout.practice_rect),
@@ -33,8 +35,7 @@ class CustomActivity : BaseActivity() {
         PageModel(R.layout.sample_arc, R.string.title_draw_arc, R.layout.practice_arc),
         PageModel(R.layout.sample_path, R.string.title_draw_path, R.layout.practice_path),
         PageModel(R.layout.sample_histogram, R.string.title_draw_histogram, R.layout.practice_histogram),
-        PageModel(R.layout.sample_pie_chart, R.string.title_draw_pie_chart, R.layout.practice_pie_chart),
-        PageModel(R.layout.layout_code_input, R.string.title_code_input, R.layout.layout_code_input)
+        PageModel(R.layout.sample_pie_chart, R.string.title_draw_pie_chart, R.layout.practice_pie_chart)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

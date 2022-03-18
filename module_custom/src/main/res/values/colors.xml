@@ -3,4 +3,9 @@
     <color name="colorPrimary">#d81e06</color>
     <color name="colorPrimaryDark">#d81e06</color>
     <color name="colorAccent">#8a8a8a</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="cursor_color">#1dcf9f</color>
+    <color name="color_515f68">#515f68</color>
 </resources>
