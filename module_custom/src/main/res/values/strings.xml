@@ -13,4 +13,5 @@
     <string name="title_draw_pie_chart">饼图</string>
     <string name="title_code_input">验证码输入框</string>
     <string name="title_item_sort">拖动排序</string>
+    <string name="title_address_book">通讯录</string>
 </resources>

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.syr.module_common.utils.AdapterViewHolder
 import com.syr.module_custom.R
 import com.syr.module_custom.databinding.LayoutTitleBinding
 import com.syr.module_custom.databinding.LayoutUnselecteItemBinding
@@ -70,8 +71,6 @@ internal class MAdapter : RecyclerView.Adapter<AdapterViewHolder>() {
     }
 }
 
-
-open class AdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 sealed class UiModel(open var item: ItemBean) {
     data class ItemModel(override var item: ItemBean) : UiModel(item)
     data class SeparatorModel(override var item: ItemBean) : UiModel(item)
