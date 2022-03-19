@@ -15,7 +15,8 @@
         android:paddingStart="10dp"
         android:paddingTop="10dp"
         tools:itemCount="4"
-        tools:listitem="layout_item_flow" />
+        tools:layoutManager=".addressbook.FlowLayoutManager"
+        tools:listitem="@layout/layout_item_flow" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/addressBookRecycler"
@@ -23,8 +24,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:padding="16dp"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="2"
-        tools:listitem="@layout/layout_title" />
+        tools:listitem="@layout/layout_item_section" />
 </LinearLayout>

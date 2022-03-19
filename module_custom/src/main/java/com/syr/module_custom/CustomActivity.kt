@@ -23,6 +23,7 @@ class CustomActivity : BaseActivity() {
     var buttonText = "toHomeFragment"
 
     private val pageModels = mutableListOf(
+        PageModel(R.layout.fragment_item_decoration, R.string.title_address_book, R.layout.fragment_item_decoration),
         PageModel(R.layout.layout_code_input, R.string.title_code_input, R.layout.layout_code_input),
         PageModel(R.layout.fragment_item_touch_helper, R.string.title_item_sort, R.layout.fragment_item_touch_helper),
         PageModel(R.layout.sample_color, R.string.title_draw_color, R.layout.practice_color),

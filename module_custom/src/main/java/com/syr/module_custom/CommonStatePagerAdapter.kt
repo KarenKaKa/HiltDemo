@@ -3,6 +3,7 @@ package com.syr.module_custom
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.syr.module_custom.addressbook.ItemDecorationFragment
 import com.syr.module_custom.helper.ItemTouchHelperFragment
 
 /**
@@ -14,8 +15,9 @@ class CommonStatePagerAdapter(activity: FragmentActivity, private val pageModels
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> CodeInputFragment()
-            1 -> ItemTouchHelperFragment()
+            0 -> ItemDecorationFragment()
+            1 -> CodeInputFragment()
+            2 -> ItemTouchHelperFragment()
             else -> PageFragment.newInstance(
                 pageModels[position].sampleLayoutRes,
                 pageModels[position].practiceLayoutRes

@@ -19,6 +19,11 @@ data class ItemBean(
     }
 }
 
+data class SectionBean(
+    var groupName: String,
+    var name: String
+) : Serializable
+
 @StringDef(
     ServiceType.COMMON,
     ServiceType.FINANCE,
