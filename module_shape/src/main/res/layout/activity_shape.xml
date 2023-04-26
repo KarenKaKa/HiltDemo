@@ -94,6 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGetShadowDrawable" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -109,4 +110,22 @@
             android:paddingVertical="20dp"
             android:text="CardView阴影" />
     </androidx.cardview.widget.CardView>
+
+    <com.syr.module_shape.shapeView.ShapeTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:text="自定义ShapeView"
+        app:bottomLeftRadius="0dp"
+        app:bottomRightRadius="10dp"
+        app:corners="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:solidColor="@color/colorAccent"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="1dp"
+        app:topLeftRadius="10dp"
+        app:topRightRadius="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

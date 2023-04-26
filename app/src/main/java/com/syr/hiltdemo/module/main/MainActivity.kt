@@ -58,7 +58,6 @@ class MainActivity : BaseActivity() {
         Utils.navigation(RouterHub.CUSTOM_DETAILSACTIVITY, context = this, args = Bundle().apply {
             putString("buttonText", "去首页")
         })
-        finish()
 
         binding.viewModel = viewModel
         viewModel.toHome.observe(this) {
