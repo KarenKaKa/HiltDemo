@@ -77,6 +77,7 @@ class PinnedItemDecoration(
     }
 
     private fun fixLayoutSize(parent: ViewGroup, view: View) {
+        view.layoutDirection = View.LAYOUT_DIRECTION_LTR
         val widthSpec = View.MeasureSpec.makeMeasureSpec(parent.width, View.MeasureSpec.EXACTLY)
         val heightSpec =
             View.MeasureSpec.makeMeasureSpec(parent.height, View.MeasureSpec.UNSPECIFIED)
