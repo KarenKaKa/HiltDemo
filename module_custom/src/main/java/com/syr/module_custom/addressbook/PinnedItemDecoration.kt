@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * stickyHeader效果
- * Created by songyaru on 2023/8/18.
+ * stickyHeader效果(尚存在问题)
  */
 class PinnedItemDecoration(
     adapter: RecyclerView.Adapter<*>,
